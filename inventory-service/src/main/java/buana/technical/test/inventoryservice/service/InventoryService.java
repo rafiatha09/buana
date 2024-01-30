@@ -9,6 +9,6 @@ public interface InventoryService {
 
     List<Inventory> getAllInventory();
 
-    Inventory getInventoryById(Long inventoryId);
+    Inventory getInventoryById(Long idInventory);
 
 }

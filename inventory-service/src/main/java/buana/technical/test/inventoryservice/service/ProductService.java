@@ -1,7 +1,7 @@
 package buana.technical.test.inventoryservice.service;
 
 import java.util.List;
-
+import java.math.BigDecimal;
 import buana.technical.test.inventoryservice.model.Inventory;
 import buana.technical.test.inventoryservice.model.Product;
 
@@ -13,7 +13,9 @@ public interface ProductService {
 
     Product getProductById(Long productId);
 
-    Product updateProduct(Product product);
+    boolean isProductInInventory(Long productId, Long inventoryId);
 
-    boolean validateProduct(Long inventoryId, Long productId);
+    Product restockProduct(Long productId, BigDecimal quantityToAdd);
+
+    Product purchaseProduct(Long productId, BigDecimal quantityToSub);
 }

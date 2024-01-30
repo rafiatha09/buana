@@ -26,6 +26,12 @@ public class InventoryServiceImpl implements InventoryService{
 
     @Override
     public Inventory getInventoryById(Long inventoryId){
-        return inventoryDb.getById(inventoryId);
+        List<Inventory> inventories = inventoryDb.findAll();
+        for (int i = 0; i < inventories.size(); i++) {
+            if (inventories.get(i).getIdInventory() == inventoryId){
+                return inventories.get(i);
+            }
+        }
+        return null;
     }
 }

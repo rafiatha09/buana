@@ -19,7 +19,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,5 +31,5 @@ public class Order {
 
     @NotNull
     @Column(name = "idProduct", nullable = false)
-    private BigDecimal idProduct;
+    private Long idProduct;
 }

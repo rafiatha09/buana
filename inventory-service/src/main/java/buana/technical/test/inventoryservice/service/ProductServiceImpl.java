@@ -68,6 +68,7 @@ public class ProductServiceImpl implements ProductService{
     public boolean validateProductQuantity(Long productId, BigDecimal quantityToOrder){
         Product product = getProductById(productId);
         if (product.getQuantity().compareTo(quantityToOrder) >= 0) {
+            purchaseProduct(productId, quantityToOrder);
             return true;
         }
         return false;

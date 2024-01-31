@@ -17,4 +17,6 @@ public interface ProductService {
     Product restockProduct(Long productId, BigDecimal quantityToAdd);
 
     Product purchaseProduct(Long productId, BigDecimal quantityToSub);
+
+    boolean validateProductQuantity(Long productId, BigDecimal quantityToOrder);
 }

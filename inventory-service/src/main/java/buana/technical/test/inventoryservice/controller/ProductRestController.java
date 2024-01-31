@@ -19,6 +19,8 @@ import buana.technical.test.inventoryservice.model.Inventory;
 import buana.technical.test.inventoryservice.model.Product;
 import buana.technical.test.inventoryservice.service.InventoryService;
 import buana.technical.test.inventoryservice.service.ProductService;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -78,10 +80,20 @@ public class ProductRestController {
     public ResponseEntity<?> isProductInInventory(@PathVariable Long idProduct, @PathVariable Long idInventory) {
         boolean isInInventory = productService.isProductInInventory(idProduct, idInventory);
         if (isInInventory) {
-            return ResponseEntity.ok().body("Product is in the specified Inventory.");
+            return new ResponseEntity<>(productService.getProductById(idProduct), HttpStatus.OK);
         } else {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("The product is not in the specified inventory.");
         }
     }
 
+    // GET endpoint to validate is the enough to create the order
+    @GetMapping("/{idProduct}/quantity/{quantityToOrder}")
+    public ResponseEntity<String> checkProductQuantity(@PathVariable Long idProduct, @PathVariable BigDecimal quantityToOrder) {
+        boolean isQuantityValid = productService.validateProductQuantity(idProduct, quantityToOrder);
+        if (isQuantityValid) {
+            return ResponseEntity.ok("Sufficient quantity available for the product.");
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Insufficient quantity for the product.");
+        }
+    }
 }

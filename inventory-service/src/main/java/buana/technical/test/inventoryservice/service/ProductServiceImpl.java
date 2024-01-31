@@ -63,4 +63,13 @@ public class ProductServiceImpl implements ProductService{
         saveProduct(product);
         return product;
     }
+
+    @Override
+    public boolean validateProductQuantity(Long productId, BigDecimal quantityToOrder){
+        Product product = getProductById(productId);
+        if (product.getQuantity().compareTo(quantityToOrder) >= 0) {
+            return true;
+        }
+        return false;
+    }
 }

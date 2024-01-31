@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import buana.technical.test.apigetaway.dto.AddProductDTO;
+import buana.technical.test.apigetaway.dto.GetProductDTO;
 import buana.technical.test.apigetaway.dto.ProductDTO;
+import buana.technical.test.apigetaway.dto.RequestOrderDTO;
 import buana.technical.test.apigetaway.dto.RestockProductDTO;
 import buana.technical.test.apigetaway.service.ApiGetawayService;
 
@@ -36,12 +38,12 @@ public class ApiGatewayController {
 
     @GetMapping("/product/{idProduct}/inventory/{idInventory}")
     public ResponseEntity<?> isProductInInventory(@PathVariable Long idProduct, @PathVariable Long idInventory) {
-        String isInInventory = apiGetawayService.productValidation(idProduct, idInventory);
-        if ("Product is in the specified Inventory.".equals(isInInventory)) {
-            return ResponseEntity.ok().body("Product is in the specified Inventory.");
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        GetProductDTO productDTO = apiGetawayService.productValidation(idProduct, idInventory);
+        return new ResponseEntity<>(productDTO, HttpStatus.ACCEPTED);
     }
 
+    @PostMapping("/add-order")
+    public ResponseEntity<?> addOrder(@RequestBody RequestOrderDTO requestOrderDTO){
+        return new ResponseEntity<>(apiGetawayService.createOrder(requestOrderDTO), HttpStatus.ACCEPTED);
+    }
 }

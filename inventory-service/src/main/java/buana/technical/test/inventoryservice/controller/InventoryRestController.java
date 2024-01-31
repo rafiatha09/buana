@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-// import org.springframework.web.bind.annotation.*;
 import buana.technical.test.inventoryservice.model.Inventory;
 import buana.technical.test.inventoryservice.service.InventoryService;
 

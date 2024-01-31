@@ -1,6 +1,8 @@
-package buana.technical.test.inventoryservice.dto.request;
-import jakarta.validation.constraints.NotNull;
+package buana.technical.test.apigetaway.dto;
+
 import java.math.BigDecimal;
+
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -8,7 +10,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class PurchaseDTO {
+public class RestockProductDTO {
     @NotNull
-    private BigDecimal quantityToSub;
+    private BigDecimal quantityToAdd;
 }

@@ -15,7 +15,6 @@ import buana.technical.test.inventoryservice.dto.ProductMapper;
 import buana.technical.test.inventoryservice.dto.request.CreateProductDTO;
 import buana.technical.test.inventoryservice.dto.request.PurchaseDTO;
 import buana.technical.test.inventoryservice.dto.request.RestockDTO;
-import buana.technical.test.inventoryservice.dto.response.GetProductDTO;
 import buana.technical.test.inventoryservice.model.Inventory;
 import buana.technical.test.inventoryservice.model.Product;
 import buana.technical.test.inventoryservice.service.InventoryService;

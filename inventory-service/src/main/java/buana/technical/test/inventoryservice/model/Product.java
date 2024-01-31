@@ -1,15 +1,12 @@
 package buana.technical.test.inventoryservice.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

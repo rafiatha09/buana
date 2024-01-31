@@ -2,7 +2,6 @@ package buana.technical.test.inventoryservice.service;
 
 import java.util.List;
 import java.math.BigDecimal;
-import buana.technical.test.inventoryservice.model.Inventory;
 import buana.technical.test.inventoryservice.model.Product;
 
 public interface ProductService {

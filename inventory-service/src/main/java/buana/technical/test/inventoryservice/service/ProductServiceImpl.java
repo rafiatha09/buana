@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import buana.technical.test.inventoryservice.model.Inventory;
 import buana.technical.test.inventoryservice.model.Product;
 import buana.technical.test.inventoryservice.repository.InventoryDb;
 import buana.technical.test.inventoryservice.repository.ProductDb;
